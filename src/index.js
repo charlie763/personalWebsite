@@ -111,7 +111,9 @@ class NavBar extends React.Component{
 							{this.menuNavButton('My Story')}
 						</div>
 						<div className="row">
-							{this.menuNavButton('Resume')}
+							<a href="https://drive.google.com/file/d/1wl-ElSoI9okXCZ2mS09zBPe-HNd4Bumj/view?usp=sharing">
+								<button className="btn bg-linen text-ice">Resume</button>
+							</a>
 						</div>
 					</div>
 				</div>
