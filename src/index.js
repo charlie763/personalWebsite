@@ -129,7 +129,6 @@ class NavBar extends React.Component{
 							{this.secondaryNavButton('Home')}
 							{this.secondaryNavButton('My Story')}
 							{this.secondaryNavButton('Resume')}
-							{this.secondaryNavButton('Blog')}
 						</div>
 						<div class="col-6 d-flex d-lg-none justify-content-end">
 							{this.menuIcon()}
