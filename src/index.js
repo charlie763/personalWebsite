@@ -74,7 +74,8 @@ class NavBar extends React.Component{
 		return(
 			<button 
 				className="btn bg-water text-linen"
-				onClick={()=> this.props.handleBodyChange(navTo)}>{navTo}
+				onClick={()=> this.props.handleBodyChange(navTo)}>
+				{navTo}
 			</button>
 			);
 	}
@@ -128,7 +129,10 @@ class NavBar extends React.Component{
 						<div className="col-6 d-none d-lg-flex justify-content-end">
 							{this.secondaryNavButton('Home')}
 							{this.secondaryNavButton('My Story')}
-							{this.secondaryNavButton('Resume')}
+							<a href="https://drive.google.com/file/d/1wl-ElSoI9okXCZ2mS09zBPe-HNd4Bumj/view?usp=sharing">
+								<button className="btn bg-water text-linen">Resume</button>
+							</a>
+
 						</div>
 						<div class="col-6 d-flex d-lg-none justify-content-end">
 							{this.menuIcon()}
@@ -178,7 +182,7 @@ class Home extends React.Component{
 					<div className="col-sm-6 m-4 pl-5 justify-content-center d-flex flex-column">
 						{paragraph('I love to understand what makes people tick and build products that solve real needs.')}
 						{paragraph('Once upon a time, I founded and ran my own startup.')}
-						{paragraph('Alum of Brown University living in Albuquerque, NM	')} 	 					
+						{paragraph('Alum of Brown University living in Albuquerque, NM.')} 	 					
 					</div>
 				</div>
 			</div>
