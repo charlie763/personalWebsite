@@ -1,13 +1,56 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: 'moskmedium_500';
+    src: url('mosk_medium_500-webfont.woff2') format('woff2'),
+         url('mosk_medium_500-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+* {
+	font-family: 'moskmedium_500'!important;
 }
+
+.bg-ice {
+    background-color: #99D3DF!important;
+}
+
+.bg-linen {
+    background-color: #E9E9E9!important;
+}
+
+.bg-none {
+	background-color: none!important;
+}
+
+.bg-plaster {
+    background-color: #CDCDCD!important;
+}
+
+.bg-water {
+    background-color: #88BBD6!important;
+}
+
+.image-wrapper {
+	width: 65%;
+}
+
+.text-linen {
+    color: #E9E9E9!important;
+}
+
+.text-ice {
+	color: #99D3DF!important;
+}
+
+@media (min-width: 576px) {
+  .subtitle {
+  	font-size: 2em;
+  }
+
+  .image-wrapper {
+    width: 75%;
+  }
+
+}
+
