@@ -63,8 +63,8 @@ class NavBar extends React.Component{
 	primaryNavButton(navTo){
 		return(
 			<div className="col-6 justify-content-start">
-				<button className="btn bg-plaster text-white" 
-						onClick={()=> this.props.handleNavChange(navTo)}>{navTo}
+				<button className="btn bg-water text-white"> 
+						
 				</button>
 			</div>
 		);
@@ -124,7 +124,7 @@ class NavBar extends React.Component{
 			return(
 				<div className="container my-4">
 					<div className="row">
-						{this.primaryNavButton('Personal Life')}
+						{this.primaryNavButton('')}
 						<div className="col-6 d-none d-lg-flex justify-content-end">
 							{this.secondaryNavButton('Home')}
 							{this.secondaryNavButton('My Story')}
