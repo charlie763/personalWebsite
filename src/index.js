@@ -102,7 +102,7 @@ class NavBar extends React.Component{
 	openMenu(){
 		if (this.state.menuOpen === true){
 			return(
-				<div className="row mt-5 bg-linen rounded" style={{"z-index": "2", "position": "absolute", "right": "2em"}}>
+				<div className="row mt-5 bg-linen rounded" style={{"zIndex": "2", "position": "absolute", "right": "2em"}}>
 					<div className="col">
 						<div className="row">
 							{this.menuNavButton('Home')}
@@ -136,7 +136,7 @@ class NavBar extends React.Component{
 							</a>
 
 						</div>
-						<div class="col-6 d-flex d-lg-none justify-content-end">
+						<div className="col-6 d-flex d-lg-none justify-content-end">
 							{this.menuIcon()}
 							{this.openMenu()}
 						</div>
@@ -161,7 +161,7 @@ class NavBar extends React.Component{
 
 function paragraph(text){
 		return(
-			<p className="text-white my-3" style={{"font-size": "1.1em"}}>{parse(text)}</p>
+			<p className="text-white my-3" style={{"fontSize": "1.1em"}}>{parse(text)}</p>
 			);
 	}
 
