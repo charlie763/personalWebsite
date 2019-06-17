@@ -111,7 +111,7 @@ class NavBar extends React.Component{
 							{this.menuNavButton('My Story')}
 						</div>
 						<div className="row">
-							<a href="https://drive.google.com/file/d/1wl-ElSoI9okXCZ2mS09zBPe-HNd4Bumj/view?usp=sharing">
+							<a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1wl-ElSoI9okXCZ2mS09zBPe-HNd4Bumj/view?usp=sharing">
 								<button className="btn bg-linen text-ice">Resume</button>
 							</a>
 						</div>
@@ -131,7 +131,7 @@ class NavBar extends React.Component{
 						<div className="col-6 d-none d-lg-flex justify-content-end">
 							{this.secondaryNavButton('Home')}
 							{this.secondaryNavButton('My Story')}
-							<a href="https://drive.google.com/file/d/1wl-ElSoI9okXCZ2mS09zBPe-HNd4Bumj/view?usp=sharing">
+							<a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1wl-ElSoI9okXCZ2mS09zBPe-HNd4Bumj/view?usp=sharing">
 								<button className="btn bg-water text-linen">Resume</button>
 							</a>
 
