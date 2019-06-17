@@ -195,9 +195,7 @@ class MyStory extends React.Component{
 				</div>
 				<div className="row d-flex justify-content-center">
 					<div className="col-8 m-4 pl-5 justify-content-center d-flex flex-column">
-						{paragraph('I never intended to become a tech entrepreneur. I never set out to be a product manager. It started because I thought I had a great idea. At the time, I was working for the Kettering Foundation. I was passionate about empowering individuals to better influence democracy and our political system. I had been studying the intersection between social network analysis and democracy. I was fascinated by studies that showed people with the highest' + html(<a href="https://en.wikipedia.org/wiki/Betweenness_centrality">betweenness centrality</a>) + 'in their social networks, for example the Medici’s in Renaissance Italy, often had more power or social capital. My great idea was to help the average individual understand how they might better navigate their civic and political networks. I wanted the average individual to be able to have the power of a Medici, to have the power of a lobbyists who often spend their career learning to map and navigate this civic and political networks.')}
-						{paragraph('Once upon a time, I founded and ran my own startup.')}
-						{paragraph('Alum of Brown University living in Albuquerque, NM	')} 	 					
+							 					
 					</div>
 				</div>
 			</div>
