@@ -125,7 +125,7 @@ class NavBar extends React.Component{
 		let activeNav = this.props.activeNav
 		if(activeNav === 'Professional Life'){
 			return(
-				<div className="container my-4">
+				<div className="container-fluid m-4">
 					<div className="row">
 						{this.primaryNavButton('')}
 						<div className="col-6 d-none d-lg-flex justify-content-end">
@@ -145,7 +145,7 @@ class NavBar extends React.Component{
 			);
 		} else if(activeNav === 'Personal Life'){
 			return(
-				<div className="container my-4">
+				<div className="container-fluid m-4">
 					<div className="row">
 						{this.primaryNavButton('Professional Life')}
 						{this.secondaryNavButton('Home')}
@@ -161,27 +161,27 @@ class NavBar extends React.Component{
 
 function paragraph(text){
 		return(
-			<p className="text-white my-3" style={{"fontSize": "1.1em"}}>{parse(text)}</p>
+			<p className="text-white my-4 my-md-3" style={{"fontSize": "1.1em"}}>{parse(text)}</p>
 			);
 	}
 
 class Home extends React.Component{
 	render(){
 		return(
-			<div className="container mt-3">
+			<div className="container-fluid mt-3">
 				<div className="row justify-content-center mt-5">
-					<h1 className="text-white">Hi, I'm Charlie</h1>
+					<h1 className="title text-white">Hi, I'm Charlie</h1>
 				</div>
 				<div className="row justify-content-center mb-sm-5">
 					<h5 className="subtitle text-white">Product Manager + Radical Empathy</h5>
 				</div>
 				<div className="row justify-content-center py-4">
-					<div className="col-sm-4 d-flex justify-content-center">
+					<div className="col-9 col-md-4 d-flex justify-content-center">
 						<div className="image-wrapper">
 							<img className="w-100" src={headshot}></img>
 						</div>
 					</div>
-					<div className="col-sm-6 m-4 pl-5 justify-content-center d-flex flex-column">
+					<div className="col-9 col-md-6 my-5 my-md-0 pl-5 justify-content-center d-flex flex-column">
 						{paragraph('I love to understand what makes people tick and build products that solve real needs.')}
 						{paragraph('Once upon a time, I founded and ran my own startup.')}
 						{paragraph('Alum of Brown University living in Albuquerque, NM.')} 	 					
@@ -195,7 +195,7 @@ class Home extends React.Component{
 class MyStory extends React.Component{
 	render(){
 		return(
-			<div className="container mt-3">
+			<div className="container-fluid mt-3">
 				<div className="row justify-content-center mt-5">
 					<h1 className="text-white">My Story</h1>
 				</div>
