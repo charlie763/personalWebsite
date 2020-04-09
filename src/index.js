@@ -108,6 +108,9 @@ class NavBar extends React.Component{
 							{this.menuNavButton('Home')}
 						</div>
 						<div className="row">
+							{this.menuNavButton('Product Philosophy')}
+						</div>
+						<div className="row">
 							{this.menuNavButton('My Story')}
 						</div>
 						<div className="row">
@@ -130,6 +133,7 @@ class NavBar extends React.Component{
 						{this.primaryNavButton('')}
 						<div className="col-6 d-none d-lg-flex justify-content-end">
 							{this.secondaryNavButton('Home')}
+							{this.secondaryNavButton('Product Philosophy')}
 							{this.secondaryNavButton('My Story')}
 							<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charles-wisoff-aa94a729/">
 								<button className="btn bg-water text-linen">Linkedin</button>
@@ -190,6 +194,43 @@ class Home extends React.Component{
 			</div>
 			);
 		}
+}
+
+class ProductPhilosophy extends React.Component{
+	render(){
+		return(
+			<div className="container-fluid mt-3">
+				<div className="row justify-content-center mt-5">
+					<h1 className="text-white">Product Philosophy</h1>
+				</div>
+				<br></br>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">Zealously focus on who your user is and what their deep needs are</h4>
+				</div>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">Simplicity is next to godliness</h4>
+				</div>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">Great ideas come from great teams who care about what they're building</h4>
+				</div>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">Always seek to validate an idea before building it</h4>
+				</div>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">You can never completley validate an idea before building it</h4>
+				</div>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">Validation is about deeply understanding risk and reward</h4>
+				</div>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">Validation is about designing targeted experiments that help you learn quickly</h4>
+				</div>
+				<div className="row justify-content-center">
+					<h4 className="pt-2 pb-2 text-white">We all have blind spots and true intelligence is being aware of our blindspots</h4>
+				</div>
+			</div>
+			)
+	}
 }
 
 class MyStory extends React.Component{
@@ -262,6 +303,12 @@ class Body extends React.Component{
 				return(
 					<div>
 						<Home />
+					</div>
+				);
+			case 'Product Philosophy':
+				return(
+					<div>
+						<ProductPhilosophy />
 					</div>
 				);
 			case 'My Story':
