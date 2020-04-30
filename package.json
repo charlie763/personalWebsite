@@ -6,7 +6,7 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "html-react-parser": "^0.7.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
