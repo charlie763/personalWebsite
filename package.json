@@ -4,15 +4,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.0",
     "html-react-parser": "^0.7.1",
-    "jquery": "^3.4.1",
+    "jquery": ">=3.5.0",
     "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.0.1",
-    "tmp": "^0.1.0"
+    "tmp": "^0.1.0",
+    "websocket-extensions": ">=0.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -43,6 +43,10 @@
 	color: #99D3DF!important;
 }
 
+.title {
+	
+}
+
 @media (min-width: 576px) {
   .subtitle {
   	font-size: 2em;
