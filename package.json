@@ -7,7 +7,7 @@
     "bootstrap": "^4.5.0",
     "html-react-parser": "^0.7.1",
     "jquery": ">=3.5.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
