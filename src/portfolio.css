@@ -1,9 +1,9 @@
-dd {
+dd.display-subtitle {
   margin-left: 1.5rem;
   margin-bottom: .5rem;
 }
 
-dt {
+dt.display-title {
   margin-bottom: .25rem;
   font-size: 1.5rem;
 }
@@ -16,7 +16,7 @@ dt {
   color: #fff !important;
 }
 
-.subtitle {
+.title-subtitle {
   font-size: .5em;
   font-weight: normal;
 }

@@ -58,3 +58,31 @@
 
 }
 
+dd.display-subtitle {
+    margin-left: 1.5rem;
+    margin-bottom: .5rem;
+  }
+  
+  dt.display-title {
+    margin-bottom: .25rem;
+    font-size: 1.5rem;
+  }
+  
+  .primary-background {
+    background-color: #88BBD6!important;
+  }
+  
+  .primary-text {
+    color: #fff !important;
+  }
+  
+  .title-subtitle {
+    font-size: .5em;
+    font-weight: normal;
+  }
+  
+  .secondary-text {
+    color: #E9E9E9!important;
+  }
+  
+
