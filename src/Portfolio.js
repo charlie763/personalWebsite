@@ -39,14 +39,13 @@ class Portfolio extends React.Component{
 	render(){
 
 		return(
-			<div class="container">
-      <div id="portfolio-display">
-  <div class="row justify-content-between py-3">
-    <div class="col-auto">
-      <h2 id="portfolio-title" class="primary-text">Portfolio</h2>
-    </div>
-    
-  </div>
+			<div className="container-fluid mt-3 mr-md-n5 pl-md-4">
+        <div id="portfolio-display">
+           <div class="row justify-content-between py-3">
+              <div class="col-auto">
+                <h2 id="portfolio-title" class="primary-text">Portfolio</h2>
+              </div>
+            </div>
     
     {repo_block({title: "Github Portfolio CMS",
       updated_at: "Jul 30, 2020",
@@ -79,12 +78,8 @@ class Portfolio extends React.Component{
       github_url: "https://github.com/charlie763/checkers"
       })
     }
-    
   
-</div>
-
-
-
+      </div>
     </div>
 
 			);

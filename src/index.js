@@ -217,9 +217,7 @@ class Body extends React.Component{
 				);
 			case 'Portfolio':
 				return(
-					<div>
 						<Portfolio />
-					</div>
 				);
 		}
 	}
