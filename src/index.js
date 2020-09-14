@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import headshot from './headshot.png';
 import parse from 'html-react-parser';
 import Portfolio from './Portfolio.js';
 // import $ from 'jquery';
@@ -187,7 +186,7 @@ class Home extends React.Component{
 				<div className="row justify-content-center py-4">
 					<div className="col-9 col-md-4 d-flex justify-content-center">
 						<div className="image-wrapper">
-							<img className="w-100" src={headshot}></img>
+							<img className="w-100" src="https://i.postimg.cc/y8B5KK65/headshot.png"></img>
 						</div>
 					</div>
 					<div className="col-9 col-md-6 my-5 my-md-0 pl-5 justify-content-center d-flex flex-column">
