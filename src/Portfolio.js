@@ -47,6 +47,15 @@ class Portfolio extends React.Component{
               </div>
             </div>
     
+      {repo_block({title: "Tetris",
+      created: "September, 2020",
+      description: "This is a portfolio project for the Flatiron Software Engineering program. I built the classic game tetris with a vanilla JS frontend and a Rails API backend. The backend stores users and games allowing you to save and load your last game as well as view high scores. I took this project as an opportunity to solidify my skills with DOM manipulation, event handling and asynchronous functions.",
+      blog_url: "https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a",
+      github_url: "https://github.com/charlie763/tetris",
+      screenshot: "https://drive.google.com/uc?id=1_Atu_XIBtnqKQiWYQsWo2I4CjmFMG5ip"
+      })
+    }
+
     {repo_block({title: "Code Notes",
       created: "August, 2020",
       description: "Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, and I built more complex object models relationships.",
