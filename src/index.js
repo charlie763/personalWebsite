@@ -186,7 +186,7 @@ class Home extends React.Component{
 				<div className="row justify-content-center py-4">
 					<div className="col-9 col-md-4 d-flex justify-content-center">
 						<div className="image-wrapper">
-							<img className="w-100" src="https://drive.google.com/uc?export=view&id=1E_mM32TCcGnHkF7GedAJatf76tjwl9v0"></img>
+							<img className="w-100" src="https://i.postimg.cc/y8B5KK65/headshot.png"></img>
 						</div>
 					</div>
 					<div className="col-9 col-md-6 my-5 my-md-0 pl-5 justify-content-center d-flex flex-column">

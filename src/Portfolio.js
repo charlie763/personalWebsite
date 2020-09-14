@@ -13,7 +13,7 @@ function render_blog(blog_url){
 
 function repo_block(repo_hash){
   return(
-    <div className="row justify-content-center">
+    <div className="row justify-content-center my-3">
       <div className="col-9 col-md-6">
         <dl>
           <dt class="display-title primary-text">{parse(repo_hash.title)}
@@ -49,10 +49,10 @@ class Portfolio extends React.Component{
     
     {repo_block({title: "Code Notes",
       created: "August, 2020",
-      description: "This was my second portfolio project for the Flatiron software engineering program. It's meant to demonstrate my competence with the Sinatra web framework. I built a CMS for managing which github repos you want to include in your portfolio and autogenerating HTML/CSS for those repos that you can put on personal website.",
-      blog_url: "https://medium.com/@cwisoff/sinatra-portfolio-project-the-art-of-debugging-eba911b05e16",
-      github_url: "https://github.com/charlie763/github-portfolio-cms",
-      screenshot: github_screenshot
+      description: "Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, and I built more complex object models relationships.",
+      blog_url: "https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a",
+      github_url: "https://github.com/charlie763/code-notes",
+      screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png"
       })
     }
     
