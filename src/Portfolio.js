@@ -11,6 +11,14 @@ function render_blog(blog_url){
   }
 }
 
+function renderAppLink(app_url){
+  if (app_url){
+    return(
+    <span>    {parse("&#9679")}    <a class="secondary-text" href={app_url}>Live App</a></span>
+    );
+  }
+}
+
 function repo_block(repo_hash){
   return(
     <div className="row justify-content-center my-3">
@@ -22,9 +30,8 @@ function repo_block(repo_hash){
           <dd class="display-subtitle secondary-text font-italic">{parse(repo_hash.description)}</dd>
           <dd class="display-subtitle secondary-text">
             <a class="secondary-text" href={repo_hash.github_url}>Github Repo</a>
-            
             {render_blog(repo_hash.blog_url)} 
-            <span>    {parse("&#9679")}    </span>
+            {renderAppLink(repo_hash.app_url)} 
           </dd>
         </dl>
       </div>
@@ -56,7 +63,8 @@ class Portfolio extends React.Component{
       description: "This is a portfolio project for the Flatiron Software Engineering program. I built the classic game tetris with a vanilla JS frontend and a Rails API backend. The backend stores users and games allowing you to save and load your last game as well as view high scores. I took this project as an opportunity to solidify my skills with DOM manipulation, event handling and asynchronous functions.",
       blog_url: "https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a",
       github_url: "https://github.com/charlie763/tetris",
-      screenshot: "https://drive.google.com/uc?id=1_Atu_XIBtnqKQiWYQsWo2I4CjmFMG5ip"
+      screenshot: "https://drive.google.com/uc?id=1_Atu_XIBtnqKQiWYQsWo2I4CjmFMG5ip",
+      app_url: "https://charlie763.github.io/tetris/frontend/"
       })
     }
 
@@ -65,7 +73,8 @@ class Portfolio extends React.Component{
       description: "Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, and I built more complex object model relationships.",
       blog_url: "https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a",
       github_url: "https://github.com/charlie763/code-notes",
-      screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png"
+      screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png",
+      app_url: "notes-on-code.herokuapp.com/"
       })
     }
     
@@ -74,7 +83,8 @@ class Portfolio extends React.Component{
       description: "This was my second portfolio project for the Flatiron software engineering program. It's meant to demonstrate my competence with the Sinatra web framework. I built a CMS for managing which github repos you want to include in your portfolio and autogenerating HTML/CSS for those repos that you can put on a personal website.",
       blog_url: "https://medium.com/@cwisoff/sinatra-portfolio-project-the-art-of-debugging-eba911b05e16",
       github_url: "https://github.com/charlie763/github-portfolio-cms",
-      screenshot: github_screenshot
+      screenshot: github_screenshot,
+      app_url: "https://infinite-cove-25560.herokuapp.com/"
       })
     }
 
