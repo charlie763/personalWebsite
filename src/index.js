@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import headshot from './headshot.png';
 import parse from 'html-react-parser';
 import Portfolio from './Portfolio.js';
 // import $ from 'jquery';
