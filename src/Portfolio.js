@@ -6,7 +6,7 @@ import cli_screenshot from './cli_screenshot.png';
 function render_blog(blog_url){
   if (blog_url){
     return(
-    <dd class="display-subtitle"><a class="secondary-text" href={blog_url}>Blog Post</a></dd>
+    <span>    {parse("&#9679")}    <a class="secondary-text" href={blog_url}>Blog Post</a></span>
     );
   }
 }
@@ -19,9 +19,13 @@ function repo_block(repo_hash){
           <dt class="display-title primary-text">{parse(repo_hash.title)}
             <span class="secondary-text title-subtitle ml-3">Created: {parse(repo_hash.created)}</span>
           </dt>
-            <dd class="display-subtitle secondary-text font-italic">{parse(repo_hash.description)}</dd>
-            {render_blog(repo_hash.blog_url)}
-            <dd class="display-subtitle"><a class="secondary-text" href={repo_hash.github_url}>Github Repo</a></dd>
+          <dd class="display-subtitle secondary-text font-italic">{parse(repo_hash.description)}</dd>
+          <dd class="display-subtitle secondary-text">
+            <a class="secondary-text" href={repo_hash.github_url}>Github Repo</a>
+            
+            {render_blog(repo_hash.blog_url)} 
+            <span>    {parse("&#9679")}    </span>
+          </dd>
         </dl>
       </div>
       
@@ -58,7 +62,7 @@ class Portfolio extends React.Component{
 
     {repo_block({title: "Code Notes",
       created: "August, 2020",
-      description: "Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, and I built more complex object models relationships.",
+      description: "Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, and I built more complex object model relationships.",
       blog_url: "https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a",
       github_url: "https://github.com/charlie763/code-notes",
       screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png"
@@ -67,7 +71,7 @@ class Portfolio extends React.Component{
     
     {repo_block({title: "Github Portfolio CMS",
       created: "July, 2020",
-      description: "This was my second portfolio project for the Flatiron software engineering program. It's meant to demonstrate my competence with the Sinatra web framework. I built a CMS for managing which github repos you want to include in your portfolio and autogenerating HTML/CSS for those repos that you can put on personal website.",
+      description: "This was my second portfolio project for the Flatiron software engineering program. It's meant to demonstrate my competence with the Sinatra web framework. I built a CMS for managing which github repos you want to include in your portfolio and autogenerating HTML/CSS for those repos that you can put on a personal website.",
       blog_url: "https://medium.com/@cwisoff/sinatra-portfolio-project-the-art-of-debugging-eba911b05e16",
       github_url: "https://github.com/charlie763/github-portfolio-cms",
       screenshot: github_screenshot
@@ -92,7 +96,7 @@ class Portfolio extends React.Component{
 
     {repo_block({title: "Checkers",
       created: "March, 2019",
-      description: "In between jobs, I took the opportunity to teach myself Ruby and get better at object-oriented programming. Years before, I had taught myself to code in Python. I thought it would be useful to learn a different language. The applications implements a basic 2-player checkers games using the Ruby 2D gem for visualization.",
+      description: "In between jobs, I took the opportunity to teach myself Ruby and get better at object-oriented programming. Years before, I had taught myself to code in Python. I thought it would be useful to learn a different language. The application implements a basic 2-player checkers games using the Ruby 2D gem for visualization.",
       github_url: "https://github.com/charlie763/checkers"
       })
     }
