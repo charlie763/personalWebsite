@@ -19,9 +19,20 @@ function renderAppLink(app_url){
   }
 }
 
-// function renderTag(tag){
-//   return(<span class="badge badge-pill">{tag}</span>);
-// }
+const tagColorMap = {
+  javascript: "#89D7BE",
+  ruby: "#D7A489",
+  rails: "#95D789",
+  react: "#89D7BE",
+  sinatra: "#89D7BE"
+}
+
+function renderTags(tagArray){
+  return(tagArray.map(tag => 
+        <span className="badge badge-pill" style={{backgroundColor: tagColorMap[tag]}}>{tag}</span>
+      )
+    );
+}
 
 
 function repo_block(repo_hash){
@@ -29,12 +40,13 @@ function repo_block(repo_hash){
     <div className="row justify-content-center my-3">
       <div className="col-9 col-md-6">
         <dl>
-          <dt class="display-title primary-text">{parse(repo_hash.title)}
-            <span class="secondary-text title-subtitle ml-3">Created: {parse(repo_hash.created)}</span>
+          <dt className="display-title primary-text">{parse(repo_hash.title)}
+            {renderTags(repo_hash.tags)}
+            <span className="secondary-text title-subtitle ml-3">Created: {parse(repo_hash.created)}</span>
           </dt>
-          <dd class="display-subtitle secondary-text font-italic">{parse(repo_hash.description)}</dd>
-          <dd class="display-subtitle secondary-text">
-            <a class="secondary-text" href={repo_hash.github_url}>Github Repo</a>
+          <dd className="display-subtitle secondary-text font-italic">{parse(repo_hash.description)}</dd>
+          <dd className="display-subtitle secondary-text">
+            <a className="secondary-text" href={repo_hash.github_url}>Github Repo</a>
             {render_blog(repo_hash.blog_url)} 
             {renderAppLink(repo_hash.app_url)} 
           </dd>
@@ -57,8 +69,8 @@ class Portfolio extends React.Component{
 		return(
 			<div className="container-fluid mt-3 mr-md-n5 pl-md-4">
         <div id="portfolio-display">
-           <div class="row justify-content-between py-3">
-              <div class="col-auto">
+           <div className="row justify-content-between py-3">
+              <div className="col-auto">
                 <h2 id="portfolio-title" class="primary-text">Portfolio</h2>
               </div>
             </div>
@@ -81,7 +93,7 @@ class Portfolio extends React.Component{
       github_url: "https://github.com/charlie763/code-notes",
       screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png",
       app_url: "notes-on-code.herokuapp.com/",
-      tags: ["javascript", "rails"]
+      tags: ["ruby", "rails"]
       })
     }
     
@@ -92,7 +104,7 @@ class Portfolio extends React.Component{
       github_url: "https://github.com/charlie763/github-portfolio-cms",
       screenshot: github_screenshot,
       app_url: "https://infinite-cove-25560.herokuapp.com/",
-      tags: ["javascript", "rails"]
+      tags: ["ruby", "sinatra"]
       })
     }
 
@@ -102,11 +114,11 @@ class Portfolio extends React.Component{
       blog_url: "https://medium.com/@cwisoff/news-search-cli-data-gem-portfolio-project-3c41683cd635",
       github_url: "https://github.com/charlie763/news_search_cli",
       screenshot: cli_screenshot,
-      tags: ["javascript", "rails"]
+      tags: ["ruby"]
       })
     }
 
-    {repo_block({title: "Personal Website",
+    {/* {repo_block({title: "Personal Website",
       created: "May, 2019",
       description: "If you're on my portfolio, this is the code for the personal website you're visiting. I began building this website in between product management jobs. At the time, I used it as an opportunity to learn React and brush up on my Bootstrap skills. For example, the navbar uses React's notion of state to maintain the active nav state.",
       github_url: "https://github.com/charlie763/personalWebsite",
@@ -120,7 +132,7 @@ class Portfolio extends React.Component{
       github_url: "https://github.com/charlie763/checkers",
       tags: ["javascript", "rails"]
       })
-    }
+    } */}
   
       </div>
     </div>
