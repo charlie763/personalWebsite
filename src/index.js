@@ -41,7 +41,7 @@ class Page extends React.Component{
 
 	render(){
 		return(
-			<div className="bg-water" style={{marginRight:40}}>
+			<div className="bg-water">
 				<NavBar handleBodyChange={this.changeBody} 
 						handleNavChange={this.changeNav}
 						activeNav={this.state.activeNav}
@@ -133,7 +133,7 @@ class NavBar extends React.Component{
 				<div className="container-fluid m-4">
 					<div className="row">
 						{this.primaryNavButton('')}
-						<div className="col-6 d-none d-lg-flex justify-content-end">
+						<div className="col-6 d-none d-lg-flex justify-content-end px-5">
 							{this.secondaryNavButton('Home')}
 							{this.secondaryNavButton('Portfolio')}
 							<a target="_blank" rel="noopener noreferrer" href="https://medium.com/@cwisoff">
@@ -144,7 +144,7 @@ class NavBar extends React.Component{
 							</a>
 
 						</div>
-						<div className="col-6 d-flex d-lg-none justify-content-end">
+						<div className="col-6 d-flex d-lg-none justify-content-end px-5">
 							{this.menuIcon()}
 							{this.openMenu()}
 						</div>
@@ -189,7 +189,7 @@ class Home extends React.Component{
 							<img className="w-100" src="https://i.postimg.cc/y8B5KK65/headshot.png"></img>
 						</div>
 					</div>
-					<div className="col-9 col-md-6 my-5 my-md-0 pl-5 justify-content-center d-flex flex-column">
+					<div className="col-11 col-md-6 my-5 my-md-0 pl-5 justify-content-center d-flex flex-column">
 						{paragraph("I love to continually learn new things.")}
 						{paragraph("I'm passionate about building things that add value to others' lives.")}
 						{paragraph('Once upon a time, I founded and ran my own startup.')}

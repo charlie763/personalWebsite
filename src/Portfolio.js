@@ -38,7 +38,7 @@ function renderTags(tagArray){
 function repo_block(repo_hash){
   return(
     <div className="row justify-content-center my-3">
-      <div className="col-9 col-md-6">
+      <div className="col-11 col-md-6">
         <dl>
           <dt className="display-title primary-text">{parse(repo_hash.title)}
             {renderTags(repo_hash.tags)}
