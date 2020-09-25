@@ -92,7 +92,7 @@ class Portfolio extends React.Component{
       blog_url: "https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a",
       github_url: "https://github.com/charlie763/code-notes",
       screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png",
-      app_url: "notes-on-code.herokuapp.com/",
+      app_url: "https://notes-on-code.herokuapp.com/",
       tags: ["ruby", "rails"]
       })
     }
