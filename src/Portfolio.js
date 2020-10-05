@@ -88,7 +88,7 @@ class Portfolio extends React.Component{
 
     {repo_block({title: "Code Notes",
       created: "August, 2020",
-      description: "Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, and I built more complex object model relationships.",
+      description: "Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, implemented dynamic SQL searching capability, and integrated GitHub oauth.",
       blog_url: "https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a",
       github_url: "https://github.com/charlie763/code-notes",
       screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png",
