@@ -10,7 +10,6 @@
 * {
 	font-family: 'moskmedium_500'!important;
 }
-
 .bg-ice {
     background-color: #99D3DF!important;
 }
@@ -94,4 +93,12 @@ dt.display-title {
   color: #E9E9E9!important;
 }
 
+/* 
+.nav-link:link {
+  color: black!important;
+}
 
+.nav-link:active {
+  border: none;
+  color: red;
+} */
