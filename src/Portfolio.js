@@ -20,11 +20,14 @@ function renderAppLink(app_url){
 }
 
 const tagColorMap = {
-  javascript: "#89D7BE",
-  ruby: "#D7A489",
-  rails: "#95D789",
-  react: "#89D7BE",
-  sinatra: "#89D7BE"
+  Javascript: "#89D7BE",
+  Ruby: "#D7A489",
+  Rails: "#95D789",
+  'Rails API': "#95D789",
+  React: "#89D7BE",
+  Redux: "#D7A489",
+  Bootstrap: "#89D7BE",
+  Sinatra: "#89D7BE"
 }
 
 function renderTags(tagArray){
@@ -74,7 +77,17 @@ class Portfolio extends React.Component{
                 <h2 id="portfolio-title" class="primary-text">Portfolio</h2>
               </div>
             </div>
-    
+
+      {repo_block({title: "EduSource",
+      created: "October, 2020",
+      description: "EduSource is an application for parents, particularly in COVID times, to find, share, and organize online educational resources for their children. Users can view resources uploaded by other users, see comments, play embedded videos, and bookmark resources so they can easily access them later. The frontend is built with React/Redux, and the backend is built with a Rails API. I used this project as an opportunity to practice setting up sessions workflow, maintaining page context through react-router-dom, and managing the flow of data between a decoupled frontend and backend.",
+      github_url: "https://github.com/charlie763/edu-source",
+      screenshot: "https://i.postimg.cc/xTD0sXq1/homescreen-screenshot.png",
+      app_url: "https://edusource.herokuapp.com/",
+      tags: ["React", "Redux", "Rails API", "Bootstrap"]
+      })
+    }
+
       {repo_block({title: "Tetris",
       created: "September, 2020",
       description: "This is a portfolio project for the Flatiron Software Engineering program. I built the classic game tetris with a vanilla JS frontend and a Rails API backend. The backend stores users and games allowing you to save and load your last game as well as view high scores. I took this project as an opportunity to solidify my skills with DOM manipulation, event handling and asynchronous functions.",
@@ -82,7 +95,7 @@ class Portfolio extends React.Component{
       github_url: "https://github.com/charlie763/tetris",
       screenshot: "https://drive.google.com/uc?id=1_Atu_XIBtnqKQiWYQsWo2I4CjmFMG5ip",
       app_url: "https://charlie763.github.io/tetris/frontend/",
-      tags: ["javascript", "rails"]
+      tags: ["Javascript", "Rails API"]
       })
     }
 
@@ -93,7 +106,7 @@ class Portfolio extends React.Component{
       github_url: "https://github.com/charlie763/code-notes",
       screenshot: "https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png",
       app_url: "https://notes-on-code.herokuapp.com/",
-      tags: ["ruby", "rails"]
+      tags: ["Ruby", "Rails", "Bootstrap"]
       })
     }
     
@@ -104,7 +117,7 @@ class Portfolio extends React.Component{
       github_url: "https://github.com/charlie763/github-portfolio-cms",
       screenshot: github_screenshot,
       app_url: "https://infinite-cove-25560.herokuapp.com/",
-      tags: ["ruby", "sinatra"]
+      tags: ["Ruby", "Sinatra", "Bootstrap"]
       })
     }
 
@@ -114,7 +127,7 @@ class Portfolio extends React.Component{
       blog_url: "https://medium.com/@cwisoff/news-search-cli-data-gem-portfolio-project-3c41683cd635",
       github_url: "https://github.com/charlie763/news_search_cli",
       screenshot: cli_screenshot,
-      tags: ["ruby"]
+      tags: ["Ruby"]
       })
     }
 
@@ -122,7 +135,7 @@ class Portfolio extends React.Component{
       created: "May, 2019",
       description: "If you're on my portfolio, this is the code for the personal website you're visiting. I began building this website in between product management jobs. At the time, I used it as an opportunity to learn React and brush up on my Bootstrap skills. For example, the navbar uses React's notion of state to maintain the active nav state.",
       github_url: "https://github.com/charlie763/personalWebsite",
-      tags: ["javascript", "rails"]
+      tags: ["Javascript", "Rails"]
       })
     }
 
