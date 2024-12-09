@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import parse from 'html-react-parser';
@@ -42,11 +43,13 @@ class Page extends React.Component{
 	render(){
 		return(
 			<div className="bg-water">
-				<NavBar handleBodyChange={this.changeBody} 
-						handleNavChange={this.changeNav}
-						activeNav={this.state.activeNav}
-				/>
-				<Body activeBody={this.state.activeBody} />
+				<Router>
+					<NavBar handleBodyChange={this.changeBody} 
+							handleNavChange={this.changeNav}
+							activeNav={this.state.activeNav}
+					/>
+					<Body activeBody={this.state.activeBody} />
+				</Router>
 			</div>
 		);
 	}
@@ -70,22 +73,24 @@ class NavBar extends React.Component{
 		);
 	}
 
-	secondaryNavButton(navTo){
+	secondaryNavButton(navTo, path){
 		return(
-			<button 
-				className="btn bg-water text-linen"
-				onClick={()=> this.props.handleBodyChange(navTo)}>
-				{navTo}
-			</button>
+			// <button 
+			// 	className="btn bg-water text-linen"
+			// 	onClick={()=> this.props.handleBodyChange(navTo)}>
+			// 	{navTo}
+			// </button>
+			<Link to={path} className="text-linen bg-water nav-link">{navTo}</Link> 
 			);
 	}
 
-	menuNavButton(navTo){
+	menuNavButton(navTo, path){
 		return(
-			<button 
-				className="btn bg-linen text-ice"
-				onClick={()=> this.props.handleBodyChange(navTo)}>{navTo}
-			</button>
+			// <button 
+			// 	className="btn bg-linen text-ice"
+			// 	onClick={()=> this.props.handleBodyChange(navTo)}>{navTo}
+			// </button>
+			<Link to={path} className="text-linen bg-water nav-link">{navTo}</Link> 
 			);
 	}
 
@@ -134,8 +139,8 @@ class NavBar extends React.Component{
 					<div className="row">
 						{this.primaryNavButton('')}
 						<div className="col-6 d-none d-lg-flex justify-content-end px-5">
-							{this.secondaryNavButton('Home')}
-							{this.secondaryNavButton('Portfolio')}
+							{this.secondaryNavButton('Home', '/')}
+							{this.secondaryNavButton('Portfolio', '/portfolio')}
 							<a target="_blank" rel="noopener noreferrer" href="https://medium.com/@cwisoff">
 								<button className="btn bg-water text-linen">Blog</button>
 							</a>
@@ -207,18 +212,18 @@ class Body extends React.Component{
 	}
 
 	render(){
-		switch(this.props.activeBody) {
-			case 'Home':
-				return(
-					<div>
-						<Home />
-					</div>
+		return(
+			<div>
+				<Route exact path="/">
+					<Home />
+				</Route>
+				<Route exact path="/portfolio">
+					<Portfolio />
+				</Route>
+				
+			</div>
+
 				);
-			case 'Portfolio':
-				return(
-						<Portfolio />
-				);
-		}
 	}
 }
 
