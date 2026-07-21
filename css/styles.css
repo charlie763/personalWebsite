@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'moskmedium_500';
+    src: url('../assets/fonts/mosk_medium_500-webfont.woff2') format('woff2'),
+         url('../assets/fonts/mosk_medium_500-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'moskmedium_500' !important;
+}
+
+.bg-ice {
+    background-color: #99D3DF !important;
+}
+
+.bg-linen {
+    background-color: #E9E9E9 !important;
+}
+
+.bg-none {
+    background-color: none !important;
+}
+
+.bg-plaster {
+    background-color: #CDCDCD !important;
+}
+
+.bg-water {
+    background-color: #88BBD6 !important;
+}
+
+.image-wrapper {
+    width: 85%;
+}
+
+.text-linen {
+    color: #E9E9E9 !important;
+}
+
+.text-ice {
+    color: #99D3DF !important;
+}
+
+@media (min-width: 576px) {
+    .subtitle {
+        font-size: 2em;
+    }
+
+    .image-wrapper {
+        width: 75%;
+    }
+}
+
+dd.display-subtitle {
+    margin-left: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+dd span {
+    white-space: pre;
+}
+
+.badge-pill {
+    margin-left: 10px;
+    font-size: 65%;
+}
+
+dt.display-title {
+    margin-bottom: .25rem;
+    font-size: 1.5rem;
+}
+
+.primary-background {
+    background-color: #88BBD6 !important;
+}
+
+.primary-text {
+    color: #fff !important;
+}
+
+.title-subtitle {
+    font-size: .5em;
+    font-weight: normal;
+}
+
+.secondary-text {
+    color: #E9E9E9 !important;
+}
+
+/* Mobile hamburger menu */
+details.mobile-menu {
+    position: relative;
+}
+
+details.mobile-menu > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details.mobile-menu > summary::-webkit-details-marker {
+    display: none;
+}
+
+details.mobile-menu > summary::marker {
+    display: none;
+}
+
+.hamburger-bar {
+    display: block;
+    height: 0.25em;
+    width: 2em;
+    background-color: #E9E9E9;
+    margin: 0.4em 0;
+}
+
+.mobile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    z-index: 10;
+    background-color: #E9E9E9;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    min-width: 8rem;
+}
+
+.mobile-dropdown .row {
+    margin: 0;
+}
