@@ -12,93 +12,42 @@
 </head>
 <body class="bg-water">
 
-    <!-- Navbar -->
-    <div class="container-fluid m-4">
-        <div class="row">
-            <!-- Left side (empty placeholder matching original layout) -->
-            <div class="col-6 justify-content-start">
-                <button class="btn bg-water text-white"></button>
-            </div>
+    <nav class="site-nav">
+        <!-- Left slot: empty by default, back button injected here on blog posts -->
+        <div id="nav-left"></div>
 
-            <!-- Desktop nav (hidden on mobile) -->
-            <div class="col-6 d-none d-lg-flex justify-content-end px-5">
-                <button class="btn bg-water text-linen"
-                        hx-get="partials/home.html"
-                        hx-target="#content"
-                        hx-swap="innerHTML">
-                    Home
-                </button>
-                <button class="btn bg-water text-linen"
-                        hx-get="partials/portfolio.html"
-                        hx-target="#content"
-                        hx-swap="innerHTML">
-                    Portfolio
-                </button>
-                <button class="btn bg-water text-linen"
-                        hx-get="partials/blog.html"
-                        hx-target="#content"
-                        hx-swap="innerHTML">
-                    Blog
-                </button>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charliewisoff/">
-                    <button class="btn bg-water text-linen">Linkedin</button>
-                </a>
-            </div>
-
-            <!-- Mobile nav: details/summary hamburger (no JS required) -->
-            <div class="col-6 d-flex d-lg-none justify-content-end px-5">
-                <details class="mobile-menu">
-                    <summary>
-                        <span class="hamburger-bar"></span>
-                        <span class="hamburger-bar"></span>
-                        <span class="hamburger-bar"></span>
-                    </summary>
-                    <div class="mobile-dropdown">
-                        <div class="row">
-                            <button class="btn bg-linen text-ice"
-                                    hx-get="partials/home.html"
-                                    hx-target="#content"
-                                    hx-swap="innerHTML"
-                                    hx-on:htmx:after-request="this.closest('details').open = false">
-                                Home
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button class="btn bg-linen text-ice"
-                                    hx-get="partials/portfolio.html"
-                                    hx-target="#content"
-                                    hx-swap="innerHTML"
-                                    hx-on:htmx:after-request="this.closest('details').open = false">
-                                Portfolio
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button class="btn bg-linen text-ice"
-                                    hx-get="partials/blog.html"
-                                    hx-target="#content"
-                                    hx-swap="innerHTML"
-                                    hx-on:htmx:after-request="this.closest('details').open = false">
-                                Blog
-                            </button>
-                        </div>
-                        <div class="row">
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charles-wisoff-aa94a729/">
-                                <button class="btn bg-linen text-ice">Linkedin</button>
-                            </a>
-                        </div>
-                    </div>
-                </details>
-            </div>
+        <!-- Desktop nav links -->
+        <div class="nav-links d-none d-lg-flex">
+            <button class="nav-btn" hx-get="partials/home.html" hx-target="#content" hx-swap="innerHTML">Home</button>
+            <!-- <button class="nav-btn" hx-get="partials/portfolio.html" hx-target="#content" hx-swap="innerHTML">Portfolio</button> -->
+            <button class="nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML">Blog</button>
+            <a class="nav-btn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charliewisoff/">LinkedIn</a>
+            <a class="nav-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/charlie763">GitHub</a>
         </div>
-    </div>
 
-    <!-- Main content: HTMX loads home.html on page load, swaps on nav clicks -->
+        <!-- Mobile: hamburger -->
+        <div class="d-flex d-lg-none">
+            <details class="mobile-menu">
+                <summary>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </summary>
+                <div class="mobile-dropdown">
+                    <button class="mobile-nav-btn" hx-get="partials/home.html" hx-target="#content" hx-swap="innerHTML" hx-on:htmx:after-request="this.closest('details').open = false">Home</button>
+                    <button class="mobile-nav-btn" hx-get="partials/portfolio.html" hx-target="#content" hx-swap="innerHTML" hx-on:htmx:after-request="this.closest('details').open = false">Portfolio</button>
+                    <button class="mobile-nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML" hx-on:htmx:after-request="this.closest('details').open = false">Blog</button>
+                    <a class="mobile-nav-btn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charliewisoff/">LinkedIn</a>
+                </div>
+            </details>
+        </div>
+    </nav>
+
     <div id="content"
          hx-get="partials/home.html"
          hx-trigger="load"
          hx-swap="innerHTML">
     </div>
-
 
     <!-- Render markdown blog posts fetched by HTMX -->
     <script>
@@ -106,14 +55,11 @@
             var path = evt.detail.requestConfig && evt.detail.requestConfig.path;
             if (path && path.endsWith('.md')) {
                 evt.detail.serverResponse =
-                    '<div class="blog-post container-fluid mt-3">' +
-                        '<button class="btn bg-water text-linen mb-4" ' +
-                            'hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML">' +
-                            '&#8592; Blog' +
-                        '</button>' +
-                        '<div class="blog-content px-md-5">' +
-                            marked.parse(evt.detail.serverResponse) +
-                        '</div>' +
+                    '<div id="nav-left" hx-swap-oob="true">' +
+                        '<button class="nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML">&#8592; Blog</button>' +
+                    '</div>' +
+                    '<div class="blog-content py-4">' +
+                        marked.parse(evt.detail.serverResponse) +
                     '</div>';
             }
         });

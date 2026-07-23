@@ -1,113 +1,109 @@
-<div class="container-fluid mt-3 pl-md-4">
-    <div id="portfolio-display">
-        <div class="row justify-content-between py-3">
-            <div class="col-auto">
-                <h2 id="portfolio-title" class="primary-text">Portfolio</h2>
-            </div>
-        </div>
+<!-- Clear back button when navigating to portfolio -->
+<div id="nav-left" hx-swap-oob="true"></div>
 
-        <!-- EduSource -->
-        <div class="row justify-content-center my-3">
-            <div class="col-11 col-md-6">
-                <dl>
-                    <dt class="display-title primary-text">
-                        EduSource
-                        <span class="badge badge-pill" style="background-color: #89D7BE;">React</span>
-                        <span class="badge badge-pill" style="background-color: #D7A489;">Redux</span>
-                        <span class="badge badge-pill" style="background-color: #95D789;">Rails API</span>
-                        <span class="badge badge-pill" style="background-color: #89D7BE;">Bootstrap</span>
-                        <span class="secondary-text title-subtitle ml-3">Created: October, 2020</span>
-                    </dt>
-                    <dd class="display-subtitle secondary-text font-italic">EduSource is an application for parents, particularly in COVID times, to find, share, and organize online educational resources for their children. Users can view resources uploaded by other users, see comments, play embedded videos, and bookmark resources so they can easily access them later. The frontend is built with React/Redux, and the backend is built with a Rails API. I used this project as an opportunity to practice setting up sessions workflow, maintaining page context through react-router-dom, and managing the flow of data between a decoupled frontend and backend.</dd>
-                    <dd class="display-subtitle secondary-text">
-                        <a class="secondary-text" href="https://github.com/charlie763/edu-source">Github Repo</a>
-                        <span>    &#9679;    <a class="secondary-text" href="https://edusource.herokuapp.com/">Live App</a></span>
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-9 col-md-6">
-                <div class="image-wrapper mx-4">
-                    <img class="w-100" src="https://i.postimg.cc/xTD0sXq1/homescreen-screenshot.png" alt="EduSource screenshot">
-                </div>
-            </div>
-        </div>
+<div class="page-header">
+    <h2>Portfolio</h2>
+</div>
 
-        <!-- Tetris -->
-        <div class="row justify-content-center my-3">
-            <div class="col-11 col-md-6">
-                <dl>
-                    <dt class="display-title primary-text">
-                        Tetris
-                        <span class="badge badge-pill" style="background-color: #89D7BE;">Javascript</span>
-                        <span class="badge badge-pill" style="background-color: #95D789;">Rails API</span>
-                        <span class="secondary-text title-subtitle ml-3">Created: September, 2020</span>
-                    </dt>
-                    <dd class="display-subtitle secondary-text font-italic">This is a portfolio project for the Flatiron Software Engineering program. I built the classic game tetris with a vanilla JS frontend and a Rails API backend. The backend stores users and games allowing you to save and load your last game as well as view high scores. I took this project as an opportunity to solidify my skills with DOM manipulation, event handling and asynchronous functions.</dd>
-                    <dd class="display-subtitle secondary-text">
-                        <a class="secondary-text" href="https://github.com/charlie763/tetris">Github Repo</a>
-                        <span>    &#9679;    <a class="secondary-text" href="https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a">Blog Post</a></span>
-                        <span>    &#9679;    <a class="secondary-text" href="https://charlie763.github.io/tetris/frontend/">Live App</a></span>
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-9 col-md-6">
-                <div class="image-wrapper mx-4">
-                    <img class="w-100" src="https://drive.google.com/uc?id=1_Atu_XIBtnqKQiWYQsWo2I4CjmFMG5ip" alt="Tetris screenshot">
-                </div>
-            </div>
+<!-- EduSource -->
+<div class="row justify-content-center portfolio-project">
+    <div class="col-11 col-md-6">
+        <dl>
+            <dt class="display-title primary-text">
+                EduSource
+                <span class="badge badge-pill" style="background-color: #89D7BE;">React</span>
+                <span class="badge badge-pill" style="background-color: #D7A489;">Redux</span>
+                <span class="badge badge-pill" style="background-color: #95D789;">Rails API</span>
+                <span class="badge badge-pill" style="background-color: #89D7BE;">Bootstrap</span>
+                <span class="secondary-text title-subtitle ml-3">Created: October, 2020</span>
+            </dt>
+            <dd class="display-subtitle secondary-text font-italic">EduSource is an application for parents, particularly in COVID times, to find, share, and organize online educational resources for their children. Users can view resources uploaded by other users, see comments, play embedded videos, and bookmark resources so they can easily access them later. The frontend is built with React/Redux, and the backend is built with a Rails API. I used this project as an opportunity to practice setting up sessions workflow, maintaining page context through react-router-dom, and managing the flow of data between a decoupled frontend and backend.</dd>
+            <dd class="display-subtitle secondary-text">
+                <a class="secondary-text" href="https://github.com/charlie763/edu-source">Github Repo</a>
+                <span>    &#9679;    <a class="secondary-text" href="https://edusource.herokuapp.com/">Live App</a></span>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-9 col-md-5">
+        <div class="image-wrapper mx-auto">
+            <img class="w-100" src="https://i.postimg.cc/xTD0sXq1/homescreen-screenshot.png" alt="EduSource screenshot">
         </div>
+    </div>
+</div>
 
-        <!-- Code Notes -->
-        <div class="row justify-content-center my-3">
-            <div class="col-11 col-md-6">
-                <dl>
-                    <dt class="display-title primary-text">
-                        Code Notes
-                        <span class="badge badge-pill" style="background-color: #D7A489;">Ruby</span>
-                        <span class="badge badge-pill" style="background-color: #95D789;">Rails</span>
-                        <span class="badge badge-pill" style="background-color: #89D7BE;">Bootstrap</span>
-                        <span class="secondary-text title-subtitle ml-3">Created: August, 2020</span>
-                    </dt>
-                    <dd class="display-subtitle secondary-text font-italic">Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, implemented dynamic SQL searching capability, and integrated GitHub oauth.</dd>
-                    <dd class="display-subtitle secondary-text">
-                        <a class="secondary-text" href="https://github.com/charlie763/code-notes">Github Repo</a>
-                        <span>    &#9679;    <a class="secondary-text" href="https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a">Blog Post</a></span>
-                        <span>    &#9679;    <a class="secondary-text" href="https://notes-on-code.herokuapp.com/">Live App</a></span>
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-9 col-md-6">
-                <div class="image-wrapper mx-4">
-                    <img class="w-100" src="https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png" alt="Code Notes screenshot">
-                </div>
-            </div>
+<!-- Tetris -->
+<div class="row justify-content-center portfolio-project">
+    <div class="col-11 col-md-6">
+        <dl>
+            <dt class="display-title primary-text">
+                Tetris
+                <span class="badge badge-pill" style="background-color: #89D7BE;">Javascript</span>
+                <span class="badge badge-pill" style="background-color: #95D789;">Rails API</span>
+                <span class="secondary-text title-subtitle ml-3">Created: September, 2020</span>
+            </dt>
+            <dd class="display-subtitle secondary-text font-italic">This is a portfolio project for the Flatiron Software Engineering program. I built the classic game tetris with a vanilla JS frontend and a Rails API backend. The backend stores users and games allowing you to save and load your last game as well as view high scores. I took this project as an opportunity to solidify my skills with DOM manipulation, event handling and asynchronous functions.</dd>
+            <dd class="display-subtitle secondary-text">
+                <a class="secondary-text" href="https://github.com/charlie763/tetris">Github Repo</a>
+                <span>    &#9679;    <a class="secondary-text" href="https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a">Blog Post</a></span>
+                <span>    &#9679;    <a class="secondary-text" href="https://charlie763.github.io/tetris/frontend/">Live App</a></span>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-9 col-md-5">
+        <div class="image-wrapper mx-auto">
+            <img class="w-100" src="https://drive.google.com/uc?id=1_Atu_XIBtnqKQiWYQsWo2I4CjmFMG5ip" alt="Tetris screenshot">
         </div>
+    </div>
+</div>
 
-        <!-- Github Portfolio CMS -->
-        <div class="row justify-content-center my-3">
-            <div class="col-11 col-md-6">
-                <dl>
-                    <dt class="display-title primary-text">
-                        Github Portfolio CMS
-                        <span class="badge badge-pill" style="background-color: #D7A489;">Ruby</span>
-                        <span class="badge badge-pill" style="background-color: #89D7BE;">Sinatra</span>
-                        <span class="badge badge-pill" style="background-color: #89D7BE;">Bootstrap</span>
-                        <span class="secondary-text title-subtitle ml-3">Created: July, 2020</span>
-                    </dt>
-                    <dd class="display-subtitle secondary-text font-italic">This was my second portfolio project for the Flatiron software engineering program. It's meant to demonstrate my competence with the Sinatra web framework. I built a CMS for managing which github repos you want to include in your portfolio and autogenerating HTML/CSS for those repos that you can put on a personal website.</dd>
-                    <dd class="display-subtitle secondary-text">
-                        <a class="secondary-text" href="https://github.com/charlie763/github-portfolio-cms">Github Repo</a>
-                        <span>    &#9679;    <a class="secondary-text" href="https://medium.com/@cwisoff/sinatra-portfolio-project-the-art-of-debugging-eba911b05e16">Blog Post</a></span>
-                        <span>    &#9679;    <a class="secondary-text" href="https://infinite-cove-25560.herokuapp.com/">Live App</a></span>
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-9 col-md-6">
-                <div class="image-wrapper mx-4">
-                    <img class="w-100" src="assets/images/github_project_screenshot.png" alt="Github Portfolio CMS screenshot">
-                </div>
-            </div>
+<!-- Code Notes -->
+<div class="row justify-content-center portfolio-project">
+    <div class="col-11 col-md-6">
+        <dl>
+            <dt class="display-title primary-text">
+                Code Notes
+                <span class="badge badge-pill" style="background-color: #D7A489;">Ruby</span>
+                <span class="badge badge-pill" style="background-color: #95D789;">Rails</span>
+                <span class="badge badge-pill" style="background-color: #89D7BE;">Bootstrap</span>
+                <span class="secondary-text title-subtitle ml-3">Created: August, 2020</span>
+            </dt>
+            <dd class="display-subtitle secondary-text font-italic">Code Notes is my Rails portfolio project for the Flatiron coding bootcamp. It is an application for taking, organizing, and searching for notes about software development. In this project, I tried Test Driven Development for the first time, implemented dynamic SQL searching capability, and integrated GitHub oauth.</dd>
+            <dd class="display-subtitle secondary-text">
+                <a class="secondary-text" href="https://github.com/charlie763/code-notes">Github Repo</a>
+                <span>    &#9679;    <a class="secondary-text" href="https://medium.com/@cwisoff/trying-test-driven-development-for-the-first-time-with-rspec-and-capybara-1cde61789f2a">Blog Post</a></span>
+                <span>    &#9679;    <a class="secondary-text" href="https://notes-on-code.herokuapp.com/">Live App</a></span>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-9 col-md-5">
+        <div class="image-wrapper mx-auto">
+            <img class="w-100" src="https://i.postimg.cc/cCBRMpqg/screenshot-homepage.png" alt="Code Notes screenshot">
         </div>
+    </div>
+</div>
 
+<!-- Github Portfolio CMS -->
+<div class="row justify-content-center portfolio-project">
+    <div class="col-11 col-md-6">
+        <dl>
+            <dt class="display-title primary-text">
+                Github Portfolio CMS
+                <span class="badge badge-pill" style="background-color: #D7A489;">Ruby</span>
+                <span class="badge badge-pill" style="background-color: #89D7BE;">Sinatra</span>
+                <span class="badge badge-pill" style="background-color: #89D7BE;">Bootstrap</span>
+                <span class="secondary-text title-subtitle ml-3">Created: July, 2020</span>
+            </dt>
+            <dd class="display-subtitle secondary-text font-italic">This was my second portfolio project for the Flatiron software engineering program. It's meant to demonstrate my competence with the Sinatra web framework. I built a CMS for managing which github repos you want to include in your portfolio and autogenerating HTML/CSS for those repos that you can put on a personal website.</dd>
+            <dd class="display-subtitle secondary-text">
+                <a class="secondary-text" href="https://github.com/charlie763/github-portfolio-cms">Github Repo</a>
+                <span>    &#9679;    <a class="secondary-text" href="https://medium.com/@cwisoff/sinatra-portfolio-project-the-art-of-debugging-eba911b05e16">Blog Post</a></span>
+                <span>    &#9679;    <a class="secondary-text" href="https://infinite-cove-25560.herokuapp.com/">Live App</a></span>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-9 col-md-5">
+        <div class="image-wrapper mx-auto">
+            <img class="w-100" src="assets/images/github_project_screenshot.png" alt="Github Portfolio CMS screenshot">
+        </div>
     </div>
 </div>
