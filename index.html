@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
 </head>
 <body class="bg-water">
 
@@ -33,9 +34,12 @@
                         hx-swap="innerHTML">
                     Portfolio
                 </button>
-                <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@cwisoff">
-                    <button class="btn bg-water text-linen">Blog</button>
-                </a>
+                <button class="btn bg-water text-linen"
+                        hx-get="partials/blog.html"
+                        hx-target="#content"
+                        hx-swap="innerHTML">
+                    Blog
+                </button>
                 <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charliewisoff/">
                     <button class="btn bg-water text-linen">Linkedin</button>
                 </a>
@@ -69,9 +73,13 @@
                             </button>
                         </div>
                         <div class="row">
-                            <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@cwisoff">
-                                <button class="btn bg-linen text-ice">Blog</button>
-                            </a>
+                            <button class="btn bg-linen text-ice"
+                                    hx-get="partials/blog.html"
+                                    hx-target="#content"
+                                    hx-swap="innerHTML"
+                                    hx-on:htmx:after-request="this.closest('details').open = false">
+                                Blog
+                            </button>
                         </div>
                         <div class="row">
                             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charles-wisoff-aa94a729/">
@@ -91,5 +99,26 @@
          hx-swap="innerHTML">
     </div>
 
+
+    <!-- Render markdown blog posts fetched by HTMX -->
+    <script>
+        document.body.addEventListener('htmx:afterSwap', function(evt) {
+            var path = evt.detail.requestConfig && evt.detail.requestConfig.path;
+            if (path && path.endsWith('.md')) {
+                var el = evt.detail.target;
+                el.innerHTML =
+                    '<div class="blog-post container-fluid mt-3">' +
+                        '<button class="btn bg-water text-linen mb-4" ' +
+                            'hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML">' +
+                            '&#8592; Blog' +
+                        '</button>' +
+                        '<div class="blog-content px-md-5">' +
+                            marked.parse(evt.detail.serverResponse) +
+                        '</div>' +
+                    '</div>';
+                htmx.process(el);
+            }
+        });
+    </script>
 </body>
 </html>
