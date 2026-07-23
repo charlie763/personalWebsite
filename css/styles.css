@@ -191,3 +191,20 @@ details.mobile-menu > summary::marker {
 .blog-content ol {
     padding-left: 1.5rem;
 }
+
+.blog-figure {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.blog-figure img {
+    max-width: 55%;
+    height: auto;
+}
+
+.blog-figure figcaption {
+    color: #E9E9E9;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 0.5rem;
+}
