@@ -18,9 +18,9 @@
 
         <!-- Desktop nav links -->
         <div class="nav-links d-none d-lg-flex">
-            <button class="nav-btn" hx-get="partials/home.html" hx-target="#content" hx-swap="innerHTML">Home</button>
-            <!-- <button class="nav-btn" hx-get="partials/portfolio.html" hx-target="#content" hx-swap="innerHTML">Portfolio</button> -->
-            <button class="nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML">Blog</button>
+            <button class="nav-btn" hx-get="partials/home.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/">Home</button>
+            <!-- <button class="nav-btn" hx-get="partials/portfolio.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/portfolio">Portfolio</button> -->
+            <button class="nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/blog">Blog</button>
             <a class="nav-btn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charliewisoff/">LinkedIn</a>
             <a class="nav-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/charlie763">GitHub</a>
         </div>
@@ -34,29 +34,53 @@
                     <span class="hamburger-bar"></span>
                 </summary>
                 <div class="mobile-dropdown">
-                    <button class="mobile-nav-btn" hx-get="partials/home.html" hx-target="#content" hx-swap="innerHTML" hx-on:htmx:after-request="this.closest('details').open = false">Home</button>
-                    <button class="mobile-nav-btn" hx-get="partials/portfolio.html" hx-target="#content" hx-swap="innerHTML" hx-on:htmx:after-request="this.closest('details').open = false">Portfolio</button>
-                    <button class="mobile-nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML" hx-on:htmx:after-request="this.closest('details').open = false">Blog</button>
+                    <button class="mobile-nav-btn" hx-get="partials/home.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/" hx-on:htmx:after-request="this.closest('details').open = false">Home</button>
+                    <button class="mobile-nav-btn" hx-get="partials/portfolio.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/portfolio" hx-on:htmx:after-request="this.closest('details').open = false">Portfolio</button>
+                    <button class="mobile-nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/blog" hx-on:htmx:after-request="this.closest('details').open = false">Blog</button>
                     <a class="mobile-nav-btn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/charliewisoff/">LinkedIn</a>
                 </div>
             </details>
         </div>
     </nav>
 
-    <div id="content"
-         hx-get="partials/home.html"
-         hx-trigger="load"
-         hx-swap="innerHTML">
-    </div>
+    <!-- Content is loaded by the init script below based on URL params -->
+    <div id="content"></div>
 
-    <!-- Render markdown blog posts fetched by HTMX -->
     <script>
+        // Load the correct content on initial page load / refresh based on URL path.
+        // /blog            → blog index
+        // /portfolio       → portfolio
+        // /blog/post-name  → a specific blog post
+        // /                → home
+        document.addEventListener('DOMContentLoaded', function() {
+            var redirectPath = sessionStorage.getItem('__spa_redirect');
+            if (redirectPath) {
+                sessionStorage.removeItem('__spa_redirect');
+                history.replaceState(null, '', redirectPath);
+            }
+
+            var pathname = window.location.pathname;
+            var path;
+            if (pathname === '/blog') {
+                path = 'partials/blog.html';
+            } else if (pathname === '/portfolio') {
+                path = 'partials/portfolio.html';
+            } else if (pathname.startsWith('/blog/')) {
+                path = 'blog/' + pathname.replace('/blog/', '') + '.md';
+            } else {
+                path = 'partials/home.html';
+            }
+
+            htmx.ajax('GET', path, {target: '#content', swap: 'innerHTML'});
+        });
+
+        // Render markdown blog posts and inject the ← Blog back button into the navbar.
         document.body.addEventListener('htmx:beforeSwap', function(evt) {
             var path = evt.detail.requestConfig && evt.detail.requestConfig.path;
             if (path && path.endsWith('.md')) {
                 evt.detail.serverResponse =
                     '<div id="nav-left" hx-swap-oob="true">' +
-                        '<button class="nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML">&#8592; Blog</button>' +
+                        '<button class="nav-btn" hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/blog">&#8592; Blog</button>' +
                     '</div>' +
                     '<div class="blog-content py-4">' +
                         marked.parse(evt.detail.serverResponse) +
