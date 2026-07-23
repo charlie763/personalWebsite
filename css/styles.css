@@ -362,3 +362,45 @@ dt.display-title {
     font-size: 0.9em;
     margin-top: 0.5rem;
 }
+
+/* ============================================================
+   ORIGAMI PAGE
+   ============================================================ */
+.origami-intro {
+    color: #fff;
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.origami-mosaic {
+    column-count: 4;
+    column-gap: 0.5rem;
+}
+
+.origami-mosaic img {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 991px) {
+    .origami-mosaic {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 767px) {
+    .origami-mosaic {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 479px) {
+    .origami-mosaic {
+        column-count: 1;
+    }
+}
