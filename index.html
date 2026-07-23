@@ -102,11 +102,10 @@
 
     <!-- Render markdown blog posts fetched by HTMX -->
     <script>
-        document.body.addEventListener('htmx:afterSwap', function(evt) {
+        document.body.addEventListener('htmx:beforeSwap', function(evt) {
             var path = evt.detail.requestConfig && evt.detail.requestConfig.path;
             if (path && path.endsWith('.md')) {
-                var el = evt.detail.target;
-                el.innerHTML =
+                evt.detail.serverResponse =
                     '<div class="blog-post container-fluid mt-3">' +
                         '<button class="btn bg-water text-linen mb-4" ' +
                             'hx-get="partials/blog.html" hx-target="#content" hx-swap="innerHTML">' +
@@ -116,7 +115,6 @@
                             marked.parse(evt.detail.serverResponse) +
                         '</div>' +
                     '</div>';
-                htmx.process(el);
             }
         });
     </script>
