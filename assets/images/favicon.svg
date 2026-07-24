@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="16" fill="#88BBD6"/>
+
+  <!-- Main crane silhouette: neck upper-left, right wing upper-right, left wing lower-left, tail lower-right -->
+  <polygon
+    points="18,6 44,50 92,18 64,54 88,74 64,66 50,80 4,85 40,62 38,55"
+    fill="white" stroke="rgba(0,0,0,0.15)" stroke-width="0.5" stroke-linejoin="round"/>
+
+  <!-- Left wing face (darker — shadow side) -->
+  <polygon
+    points="4,85 40,62 50,72 24,78"
+    fill="rgba(0,0,0,0.12)"/>
+
+  <!-- Body center fold crease shadow -->
+  <polygon
+    points="44,50 54,56 50,70 42,62"
+    fill="rgba(0,0,0,0.15)"/>
+
+  <!-- Tail face (small, darker) -->
+  <polygon
+    points="64,54 88,74 64,66"
+    fill="rgba(0,0,0,0.10)"/>
+
+  <!-- Fold crease lines -->
+  <line x1="18" y1="6"  x2="38" y2="55" stroke="rgba(0,0,0,0.22)" stroke-width="0.7"/>
+  <line x1="44" y1="50" x2="50" y2="80" stroke="rgba(0,0,0,0.18)" stroke-width="0.7"/>
+  <line x1="92" y1="18" x2="50" y2="80" stroke="rgba(0,0,0,0.10)" stroke-width="0.5"/>
+</svg>
