@@ -50,12 +50,12 @@
     <div id="content"></div>
 
     <script>
-        // Load the correct content on initial page load / refresh based on URL params.
+        // Load the correct partial based on current URL params.
         // ?page=blog       → blog index
         // ?page=portfolio  → portfolio
         // ?post=blog/x.md  → a specific blog post
         // (no params)      → home
-        document.addEventListener('DOMContentLoaded', function() {
+        function loadContent() {
             var params = new URLSearchParams(window.location.search);
             var post = params.get('post');
             var page = params.get('page');
@@ -64,8 +64,21 @@
                      : page === 'portfolio' ? 'partials/portfolio.html'
                      : page === 'origami'   ? 'partials/origami.html'
                      : 'partials/home.html';
+            if (!post) {
+                document.getElementById('nav-left').innerHTML = '';
+            }
             htmx.ajax('GET', path, {target: '#content', swap: 'innerHTML'});
-        });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadContent);
+
+        // Handle back/forward ourselves. Capture phase (3rd arg = true) fires before
+        // HTMX's bubble-phase popstate listener; stopImmediatePropagation prevents
+        // HTMX from also trying to restore its broken cached state.
+        window.addEventListener('popstate', function(event) {
+            event.stopImmediatePropagation();
+            loadContent();
+        }, true);
 
         // Render markdown blog posts and inject the ← Blog back button into the navbar.
         document.body.addEventListener('htmx:beforeSwap', function(evt) {
