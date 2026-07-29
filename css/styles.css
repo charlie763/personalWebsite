@@ -385,6 +385,13 @@ dt.display-title {
     break-inside: avoid;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.origami-mosaic img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.08);
 }
 
 @media (max-width: 991px) {
@@ -403,4 +410,56 @@ dt.display-title {
     .origami-mosaic {
         column-count: 1;
     }
+}
+
+/* ============================================================
+   IMAGE LIGHTBOX MODAL
+   ============================================================ */
+.img-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    animation: modal-fade-in 0.15s ease;
+}
+
+.img-modal.active {
+    display: flex;
+}
+
+@keyframes modal-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.img-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    cursor: default;
+}
+
+.img-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.1s ease;
+    padding: 0;
+}
+
+.img-modal-close:hover {
+    opacity: 1;
 }

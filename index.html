@@ -49,6 +49,12 @@
     <!-- Content is loaded by the init script below based on URL params -->
     <div id="content"></div>
 
+    <!-- Origami image modal -->
+    <div id="img-modal" class="img-modal" role="dialog" aria-modal="true">
+        <button class="img-modal-close" id="img-modal-close" aria-label="Close">&times;</button>
+        <img id="img-modal-img" src="" alt="">
+    </div>
+
     <script>
         // Load the correct partial based on current URL params.
         // ?page=blog       → blog index
@@ -79,6 +85,31 @@
             event.stopImmediatePropagation();
             loadContent();
         }, true);
+
+        // Origami lightbox — event delegation so it works after HTMX swaps.
+        document.body.addEventListener('click', function(e) {
+            var img = e.target.closest('.origami-mosaic img');
+            if (img) {
+                document.getElementById('img-modal-img').src = img.src;
+                document.getElementById('img-modal-img').alt = img.alt;
+                document.getElementById('img-modal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        document.getElementById('img-modal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.id === 'img-modal-close') {
+                this.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('img-modal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
 
         // Render markdown blog posts and inject the ← Blog back button into the navbar.
         document.body.addEventListener('htmx:beforeSwap', function(evt) {
