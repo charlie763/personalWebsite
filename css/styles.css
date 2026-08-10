@@ -25,7 +25,7 @@ html, body {
 /* ============================================================
    COLORS
    ============================================================ */
-.bg-water    { background-color: #88BBD6 !important; }
+.bg-water    { background-color: #3D6E9E !important; }
 .bg-ice      { background-color: #99D3DF !important; }
 .bg-linen    { background-color: #E9E9E9 !important; }
 .bg-plaster  { background-color: #CDCDCD !important; }
@@ -35,7 +35,7 @@ html, body {
 .secondary-text    { color: #E9E9E9 !important; }
 .text-linen        { color: #E9E9E9 !important; }
 .text-ice          { color: #99D3DF !important; }
-.primary-background { background-color: #88BBD6 !important; }
+.primary-background { background-color: #3D6E9E !important; }
 
 /* ============================================================
    NAVBAR
