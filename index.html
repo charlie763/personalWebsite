@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+    <script src="js/origami-data.js"></script>
 </head>
 <body class="bg-water">
 
@@ -52,7 +53,10 @@
     <!-- Origami image modal -->
     <div id="img-modal" class="img-modal" role="dialog" aria-modal="true">
         <button class="img-modal-close" id="img-modal-close" aria-label="Close">&times;</button>
-        <img id="img-modal-img" src="" alt="">
+        <div class="img-modal-content">
+            <img id="img-modal-img" src="" alt="">
+            <div id="img-modal-caption" class="img-modal-caption"></div>
+        </div>
     </div>
 
     <script>
@@ -94,6 +98,19 @@
                 document.getElementById('img-modal-img').alt = img.alt;
                 document.getElementById('img-modal').classList.add('active');
                 document.body.style.overflow = 'hidden';
+
+                var filename = img.src.split('/').pop();
+                var data = origamiData[filename];
+                var caption = document.getElementById('img-modal-caption');
+                if (data && (data.model || data.designer)) {
+                    caption.innerHTML = data.model
+                        ? (data.designer ? '<strong>' + data.model + '</strong> &mdash; ' + `designed by ${data.designer}` : '<strong>' + data.model + '</strong>')
+                        : data.designer;
+                    caption.style.display = '';
+                } else {
+                    caption.innerHTML = '';
+                    caption.style.display = 'none';
+                }
             }
         });
 

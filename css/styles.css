@@ -436,13 +436,30 @@ dt.display-title {
     to   { opacity: 1; }
 }
 
-.img-modal img {
+.img-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
     max-width: 90vw;
     max-height: 90vh;
+}
+
+.img-modal img {
+    max-width: 90vw;
+    max-height: 85vh;
     object-fit: contain;
     border-radius: 6px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
     cursor: default;
+    display: block;
+}
+
+.img-modal-caption {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0.65rem;
 }
 
 .img-modal-close {
