@@ -1,6 +1,6 @@
 #!/bin/bash
-# Resize images in-place to fit within MAX_SIZE on the longest side.
-# Skips images already within the limit — safe to re-run when adding new images.
+# Convert HEIC/JPG/PNG images to WebP and resize to fit within MAX_SIZE on the longest side.
+# Existing WebP images are resized in-place if needed. Originals are deleted after conversion.
 # Requires: cwebp (brew install webp), ImageMagick (brew install imagemagick)
 # Usage: ./scripts/optimize-images.sh [directory]
 #        ./scripts/optimize-images.sh                   # defaults to assets/images
@@ -11,6 +11,7 @@ DIR="${1:-assets/images}"
 echo "Optimizing images in '$DIR' (max ${MAX_SIZE}px on longest side)..."
 echo ""
 
+converted=0
 resized=0
 skipped=0
 
@@ -26,16 +27,12 @@ while IFS= read -r -d '' img; do
         continue
     fi
 
-    if [ "$width" -le "$MAX_SIZE" ] && [ "$height" -le "$MAX_SIZE" ]; then
-        skipped=$((skipped + 1))
-        continue
-    fi
-
-    before=$(stat -f%z "$img")
-    tmp="${img}.tmp.${ext}"
-
     if [ "$ext_lower" = "webp" ]; then
-        # Compute scaled dimensions maintaining aspect ratio
+        # Existing WebP: resize in-place if needed
+        if [ "$width" -le "$MAX_SIZE" ] && [ "$height" -le "$MAX_SIZE" ]; then
+            skipped=$((skipped + 1))
+            continue
+        fi
         if [ "$width" -ge "$height" ]; then
             scale_w=$MAX_SIZE
             scale_h=$(( height * MAX_SIZE / width ))
@@ -43,17 +40,61 @@ while IFS= read -r -d '' img; do
             scale_h=$MAX_SIZE
             scale_w=$(( width * MAX_SIZE / height ))
         fi
+        tmp="${img}.tmp.webp"
+        before=$(stat -f%z "$img")
         cwebp -q 82 -resize "$scale_w" "$scale_h" "$img" -o "$tmp" -quiet 2>/dev/null && mv "$tmp" "$img"
+        after=$(stat -f%z "$img")
+        echo "  RESIZED: $(basename "$img")  ${width}x${height} → max ${MAX_SIZE}px  ($(( before / 1024 ))KB → $(( after / 1024 ))KB)"
+        resized=$((resized + 1))
     else
-        # jpg/png: use ImageMagick
-        magick "$img" -resize "${MAX_SIZE}x${MAX_SIZE}>" "$tmp" && mv "$tmp" "$img"
+        # HEIC/JPG/PNG: convert to WebP (with resize if needed), then delete original
+        webp_out="${img%.*}.webp"
+        before=$(stat -f%z "$img")
+
+        if [ "$ext_lower" = "heic" ]; then
+            # sips reliably converts HEIC → JPEG on macOS; then cwebp handles the rest
+            tmp_jpg="${img%.*}_tmp.jpg"
+            sips -s format jpeg "$img" --out "$tmp_jpg" >/dev/null 2>&1
+            if [ -f "$tmp_jpg" ]; then
+                if [ "$width" -gt "$MAX_SIZE" ] || [ "$height" -gt "$MAX_SIZE" ]; then
+                    if [ "$width" -ge "$height" ]; then
+                        scale_w=$MAX_SIZE; scale_h=$(( height * MAX_SIZE / width ))
+                    else
+                        scale_h=$MAX_SIZE; scale_w=$(( width * MAX_SIZE / height ))
+                    fi
+                    cwebp -q 82 -resize "$scale_w" "$scale_h" "$tmp_jpg" -o "$webp_out" -quiet 2>/dev/null
+                else
+                    cwebp -q 82 "$tmp_jpg" -o "$webp_out" -quiet 2>/dev/null
+                fi
+                rm "$tmp_jpg"
+            fi
+        else
+            # JPG/PNG: use cwebp for better compression control
+            if [ "$width" -gt "$MAX_SIZE" ] || [ "$height" -gt "$MAX_SIZE" ]; then
+                if [ "$width" -ge "$height" ]; then
+                    scale_w=$MAX_SIZE
+                    scale_h=$(( height * MAX_SIZE / width ))
+                else
+                    scale_h=$MAX_SIZE
+                    scale_w=$(( width * MAX_SIZE / height ))
+                fi
+                cwebp -q 82 -resize "$scale_w" "$scale_h" "$img" -o "$webp_out" -quiet 2>/dev/null
+            else
+                cwebp -q 82 "$img" -o "$webp_out" -quiet 2>/dev/null
+            fi
+        fi
+
+        if [ -f "$webp_out" ]; then
+            after=$(stat -f%z "$webp_out")
+            echo "  CONVERTED: $(basename "$img") → $(basename "$webp_out")  ($(( before / 1024 ))KB → $(( after / 1024 ))KB)"
+            rm "$img"
+            converted=$((converted + 1))
+        else
+            echo "  FAILED: $(basename "$img")"
+        fi
     fi
 
-    after=$(stat -f%z "$img")
-    echo "  RESIZED: $(basename "$img")  ${width}x${height} → max ${MAX_SIZE}px  ($(( before / 1024 ))KB → $(( after / 1024 ))KB)"
-    resized=$((resized + 1))
-
-done < <(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -print0)
+done < <(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.heic" \) -print0)
 
 echo ""
-echo "Done. Resized: $resized  |  Already within limit: $skipped"
+echo "Done. Converted: $converted  |  Resized: $resized  |  Already within limit: $skipped"
