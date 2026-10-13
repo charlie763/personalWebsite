@@ -39,4 +39,6 @@ const origamiData = {
   "IMG_8245.webp":  { model: "Invention of the Crane", designer: "Origami by Boice" },
   "IMG_8459.webp":  { model: "Eagle", designer: "Ikuno Riku" },
   "IMG_8460.webp":  { model: "Eagle", designer: "Ikuno Riku" },
+  "IMG_8927.webp":  { model: "Unicorn", designer: "Dong Viet Thien" },
+  "IMG_8923.webp":  { model: "Unicorn", designer: "Dong Viet Thien" },
 };
