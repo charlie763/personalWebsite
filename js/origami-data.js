@@ -1,5 +1,8 @@
 // Origami image metadata — fill in model and designer for each image.
 const origamiData = {
+  "IMG_9074.webp":  { model: "Beast Titan", designer: "Origami Kimiro" },
+  "IMG_9080.webp":  { model: "Beast Titan (back)", designer: "Origami Kimiro" },
+  "IMG_9081.webp":  { model: "Beast Titan (head)", designer: "Origami Kimiro" },
   "IMG_3034.webp":  { model: "Lion", designer: "Satoshi Kamiya" },
   "IMG_3138.webp":  { model: "Mask (I forget the exact name)", designer: "Joel Cooper" },
   "IMG_3163.webp":  { model: "Progressive Flower", designer: "Jorge Jarimillo" },
